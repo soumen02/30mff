@@ -12,10 +12,24 @@
     <p>I am another <i>paragraph</i> of text.</p>
 
     <!-- create a counter that shows how many viewers have visited the page -->
-    <p>Visitors: <span id="counter">0</span></p>
+    <p>Number of times you have visited the page: <span id="counter">0</span></p>
     
-    <!-- create a button that when clicked, increments the counter -->
-    <button onclick="incrementCounter()">Click Me!</button>
+    <!-- save the number of times a user has visited the page using local storage -->
+    <script>
+      // get the number of times the user has visited the page
+      let counter = localStorage.getItem('counter');
+      // if the user has never visited the page, set the counter to 0
+      if (!counter) {
+        counter = 0;
+      }
+      // increment the counter
+      counter++;
+      // save the counter to local storage
+      localStorage.setItem('counter', counter);
+      // update the counter on the page
+      document.getElementById('counter').innerHTML = counter;
+    </script>
+
 
     <ol>
       <li>item 1</li>
